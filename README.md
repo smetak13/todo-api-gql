@@ -1,75 +1,69 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-</p>
+# TODO Api
 
-[travis-image]: https://api.travis-ci.org/nestjs/nest.svg?branch=master
-[travis-url]: https://travis-ci.org/nestjs/nest
-[linux-image]: https://img.shields.io/travis/nestjs/nest/master.svg?label=linux
-[linux-url]: https://travis-ci.org/nestjs/nest
-  
-  <p align="center">A progressive <a href="http://nodejs.org" target="blank">Node.js</a> framework for building efficient and scalable server-side applications, heavily inspired by <a href="https://angular.io" target="blank">Angular</a>.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore"><img src="https://img.shields.io/npm/dm/@nestjs/core.svg" alt="NPM Downloads" /></a>
-<a href="https://travis-ci.org/nestjs/nest"><img src="https://api.travis-ci.org/nestjs/nest.svg?branch=master" alt="Travis" /></a>
-<a href="https://travis-ci.org/nestjs/nest"><img src="https://img.shields.io/travis/nestjs/nest/master.svg?label=linux" alt="Linux" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#5" alt="Coverage" /></a>
-<a href="https://gitter.im/nestjs/nestjs?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=body_badge"><img src="https://badges.gitter.im/nestjs/nestjs.svg" alt="Gitter" /></a>
-<a href="https://opencollective.com/nest#backer"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec"><img src="https://img.shields.io/badge/Donate-PayPal-dc3d53.svg"/></a>
-  <a href="https://twitter.com/nestframework"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Todo api made with Nest JS / GraphQL / TypeORM
 
 ## Installation
 
-```bash
-$ npm install
-```
+### Prerequisities
 
-## Running the app
+Ensure you have a running PostgreSQL (v 9+) server available.
 
-```bash
-# development
-$ npm run start
+### Steps
 
-# watch mode
-$ npm run start:dev
+1. `git clone https://github.com/smetak13/todo-api-gql`  
+2. `cd todo-api-gql`  
+3. `cp .env.example.env .env`  
+4.  edit .env (PostgreSQL connection parameters)  
+5. `npm install`  
+6. `npm run start:dev`  
 
-# production mode
-$ npm run start:prod
-```
 
-## Test
+## Examples of usage
 
-```bash
-# unit tests
-$ npm run test
+The application is running by default on http://localhost:3000  
+The graphql endpoint is served on http://localhost:3000/graphql
 
-# e2e tests
-$ npm run test:e2e
+### Get tasks
 
-# test coverage
-$ npm run test:cov
-```
+query {  
+  getTasks {  
+    id  
+    title  
+    description  
+    created  
+    completed  
+  }  
+}
 
-## Support
+### Create task
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+mutation {  
+  createTask(input: { title: "task title", description: "task desc" }) {  
+    id  
+    title  
+    description  
+    created  
+    completed  
+  }  
+}
 
-## Stay in touch
+### Edit task
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+mutation {  
+  editTask(input: { id: 1, completed: true }) {  
+    id  
+    title  
+    description  
+    completed  
+    created  
+  }  
+}
 
-## License
+### Delete task
 
-  Nest is [MIT licensed](LICENSE).
+mutation {  
+  deleteTask(input: { id: 1 }) {  
+    id  
+    title  
+  }  
+}
