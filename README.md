@@ -26,44 +26,44 @@ The graphql endpoint is served on http://localhost:3000/graphql
 ### Get tasks
 
 query {  
-  getTasks {  
-    id  
-    title  
-    description  
-    created  
-    completed  
-  }  
+  &nbsp;&nbsp;&nbsp;&nbsp;getTasks {  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;completed  
+  &nbsp;&nbsp;&nbsp;&nbsp;}  
 }
 
 ### Create task
 
 mutation {  
-  createTask(input: { title: "task title", description: "task desc" }) {  
-    id  
-    title  
-    description  
-    created  
-    completed  
-  }  
+  &nbsp;&nbsp;&nbsp;&nbsp;createTask(input: { title: "task title", description: "task desc" }) {  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;completed  
+  &nbsp;&nbsp;&nbsp;&nbsp;}  
 }
 
 ### Edit task
 
 mutation {  
-  editTask(input: { id: 1, completed: true }) {  
-    id  
-    title  
-    description  
-    completed  
-    created  
-  }  
+  &nbsp;&nbsp;&nbsp;&nbsp;editTask(input: { id: 1, completed: true }) {  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;completed  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;created  
+  &nbsp;&nbsp;&nbsp;&nbsp;}  
 }
 
 ### Delete task
 
 mutation {  
-  deleteTask(input: { id: 1 }) {  
-    id  
-    title  
-  }  
+  &nbsp;&nbsp;&nbsp;&nbsp;deleteTask(input: { id: 1 }) {  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id  
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title  
+  &nbsp;&nbsp;&nbsp;&nbsp;}  
 }
