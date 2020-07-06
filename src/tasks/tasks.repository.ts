@@ -27,10 +27,10 @@ export class TasksRepository extends Repository<Task> {
     }
   }
 
-  async editTask(request: EditTaskDto): Promise<Task> {
+  async editTask({id, ...args}: EditTaskDto): Promise<Task> {
     try {
-      const originalTask = await this.findOneOrFail(request.id);
-      const newTask = { ...originalTask, ...request };
+      const originalTask = await this.findOneOrFail(id);
+      const newTask = { ...originalTask, ...args };
       return await this.create(newTask).save();
     } catch (e) {
       throw new InternalServerErrorException(e);
